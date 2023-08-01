@@ -25,20 +25,21 @@ for i in range(len(iris.data)):
     row.append(iris.target_names[classification_id])
     classified_data.append(row)
 
-classed_iris_dataframe = pd.DataFrame(
+iris_dataframe = pd.DataFrame(
     data=classified_data, columns=['Sepal length', 'Sepal width', 'Petal length', 'Petal width', 'Species']
 )
 print(iris.DESCR)
 
-display(classed_iris_dataframe)
+display(iris_dataframe)
 
-# Apply the default theme
-sns.set_theme()
+# Histograms
+plt.hist(iris_dataframe['Sepal length'].tolist())
+plt.hist(iris_dataframe['Sepal width'].tolist())
+plt.hist(iris_dataframe['Petal length'].tolist())
+plt.hist(iris_dataframe['Petal width'].tolist())
 
-sns.pairplot(
-    classed_iris_dataframe,
-    hue='Species',
-)
+plt.ylabel('frequency')
+plt.title('Flower properties histogram')
 
 plt.show()
 
