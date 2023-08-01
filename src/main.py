@@ -25,10 +25,22 @@ for i in range(len(iris.data)):
     row.append(iris.target_names[classification_id])
     classified_data.append(row)
 
-iris_dataframe = pd.DataFrame(data=classified_data, columns=['Sepal length (cm)', 'Sepal width (cm)', 'Petal length (cm)', 'Petal width (cm)', 'Classification name'])
+classed_iris_dataframe = pd.DataFrame(
+    data=classified_data, columns=['Sepal length', 'Sepal width', 'Petal length', 'Petal width', 'Species']
+)
 print(iris.DESCR)
 
-display(iris_dataframe)
+display(classed_iris_dataframe)
+
+# Apply the default theme
+sns.set_theme()
+
+sns.pairplot(
+    classed_iris_dataframe,
+    hue='Species',
+)
+
+plt.show()
 
 # plt.axis('off')
 # plt.axis('tight')
