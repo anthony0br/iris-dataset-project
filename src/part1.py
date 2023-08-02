@@ -34,12 +34,20 @@ display(iris_dataframe)
 
 # Histograms
 plt.hist(iris_dataframe['Sepal length'].tolist())
-plt.hist(iris_dataframe['Sepal width'].tolist())
-plt.hist(iris_dataframe['Petal length'].tolist())
-plt.hist(iris_dataframe['Petal width'].tolist())
+# plt.hist(iris_dataframe['Sepal width'].tolist())
+# plt.hist(iris_dataframe['Petal length'].tolist())
+# plt.hist(iris_dataframe['Petal width'].tolist())
 
-plt.ylabel('frequency')
-plt.title('Flower properties histogram')
+# Boxplots
+plt.boxplot(iris_dataframe['Sepal length'].tolist())
+# plt.boxplot(iris_dataframe['Sepal width'].tolist())
+# plt.boxplot(iris_dataframe['Petal length'].tolist())
+# plt.boxplot(iris_dataframe['Petal width'].tolist())
+
+# plt.ylabel('frequency')
+# plt.title('Flower properties histogram')
+
+sns.pairplot(iris_dataframe, hue='Species')
 
 plt.show()
 
